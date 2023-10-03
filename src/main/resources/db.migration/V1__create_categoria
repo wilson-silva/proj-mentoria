@@ -1,6 +1,0 @@
-CREATE TABLE tb_categoria (
-    id uuid PRIMARY KEY,
-    titulo VARCHAR(255) NOT NULL,
-);
-
-
