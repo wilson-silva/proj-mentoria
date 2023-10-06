@@ -1,5 +1,6 @@
 package com.estudo.mentoria.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_categorias")
 public class Categoria {
 
     @Id
@@ -26,4 +26,8 @@ public class Categoria {
     private UUID idcategoria;
 
     private String titulo;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="categoria", fetch = FetchType.EAGER)
+    private List<Produto> produtos = new ArrayList<>();
 }
