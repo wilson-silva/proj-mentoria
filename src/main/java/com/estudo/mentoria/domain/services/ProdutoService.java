@@ -1,8 +1,7 @@
-package com.estudo.mentoria.services;
+package com.estudo.mentoria.domain.services;
 
-import com.estudo.mentoria.entities.Categoria;
-import com.estudo.mentoria.repositories.CategoriaRepository;
-
+import com.estudo.mentoria.domain.entities.Produto;
+import com.estudo.mentoria.domain.repositories.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,18 +13,18 @@ import java.util.UUID;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CategoriaService {
+public class ProdutoService {
 
-    private final CategoriaRepository repository;
+    private final ProdutoRepository repository;
 
-    public List<Categoria> listaTodasCategorias(){
+    public List<Produto> listaTodosProdutos(){
         if(repository.findAll().isEmpty()){
-            throw new RuntimeException("lista de categoria vazia!");
+            throw new RuntimeException("lista de produtos vazia!");
         }
         return repository.findAll();
     }
 
-    public Optional<Categoria> buscarPorId(UUID id){
+    public Optional<Produto> buscarPorId(UUID id){
         return repository.findById(id);
     }
 }

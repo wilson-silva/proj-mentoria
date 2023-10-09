@@ -1,6 +1,6 @@
-package com.estudo.mentoria.entities;
+package com.estudo.mentoria.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.estudo.mentoria.domain.entities.Categoria;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +24,6 @@ public class Produto {
     private Double preco;
     private Integer estoque;
     private String fabricante;
-
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_categoria")

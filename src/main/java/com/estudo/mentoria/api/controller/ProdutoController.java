@@ -1,7 +1,7 @@
-package com.estudo.mentoria.controller;
+package com.estudo.mentoria.api.controller;
 
-import com.estudo.mentoria.entities.Categoria;
-import com.estudo.mentoria.services.CategoriaService;
+import com.estudo.mentoria.domain.entities.Produto;
+import com.estudo.mentoria.domain.services.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,26 +14,26 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/produtos")
 @RequiredArgsConstructor
-public class CategoriaController {
+public class ProdutoController {
 
-    private final CategoriaService service;
+    private final ProdutoService service;
 
     //------------------------------------------------------------------------------------------
 
     @GetMapping
-    public ResponseEntity<List<Categoria>> listaTodasCategorias() {
-        List<Categoria> categorias = service.listaTodasCategorias();
-        return ResponseEntity.status(HttpStatus.OK).body(categorias);
+    public ResponseEntity<List<Produto>> listaTodosProdutos() {
+        List<Produto> produtos = service.listaTodosProdutos();
+        return ResponseEntity.status(HttpStatus.OK).body(produtos);
     }
 
    @GetMapping("/{id}")
-    public ResponseEntity<Categoria> buscarPorId(@PathVariable UUID id) {
-        var categoria = service.buscarPorId(id);
-        if(categoria.isEmpty()){
+    public ResponseEntity<Produto> buscarPorId(@PathVariable UUID id) {
+        var produto = service.buscarPorId(id);
+        if(produto.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.status(HttpStatus.OK).body(categoria.get());
+        return ResponseEntity.status(HttpStatus.OK).body(produto.get());
     }
 }
