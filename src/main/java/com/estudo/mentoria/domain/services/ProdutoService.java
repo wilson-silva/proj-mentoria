@@ -1,30 +1,19 @@
 package com.estudo.mentoria.domain.services;
 
+import com.estudo.mentoria.api.request.ProdutoRequest;
+import com.estudo.mentoria.api.response.ProdutoResponse;
 import com.estudo.mentoria.domain.entities.Produto;
-import com.estudo.mentoria.domain.repositories.ProdutoRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
-@Service
-@Transactional
-@RequiredArgsConstructor
-public class ProdutoService {
+public interface ProdutoService {
 
-    private final ProdutoRepository repository;
+    Page<Produto> findAll(Pageable pageable);
+    Produto findById(UUID id);
+    void save(ProdutoRequest request);
+    ProdutoResponse update(UUID id, ProdutoRequest request);
+    void delete(UUID id);
 
-    public List<Produto> listaTodosProdutos(){
-        if(repository.findAll().isEmpty()){
-            throw new RuntimeException("lista de produtos vazia!");
-        }
-        return repository.findAll();
-    }
-
-    public Optional<Produto> buscarPorId(UUID id){
-        return repository.findById(id);
-    }
 }

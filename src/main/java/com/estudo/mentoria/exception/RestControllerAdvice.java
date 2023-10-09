@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -63,6 +64,20 @@ public class RestControllerAdvice {
                         .fields(fields)
                         .fieldsMessage(fieldsMessage)
                         .build(), HttpStatus.BAD_REQUEST
+        );
+    }
+
+    @ResponseBody
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ResponseExceptionDetails> handlerNotFoundException(MethodArgumentTypeMismatchException bre) {
+        return new ResponseEntity<>(
+                ResponseExceptionDetails.builder()
+                        .timestamp(LocalDateTime.now())
+                        .status(HttpStatus.NOT_FOUND.value())
+                        .title("Not Found Exception, check the documentation")
+                        .details(bre.getMessage())
+                        .developerMessage(bre.getClass().getName())
+                        .build(), HttpStatus.NOT_FOUND
         );
     }
 }

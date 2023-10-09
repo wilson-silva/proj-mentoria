@@ -8,13 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.UUID;
 
-public interface CategoriaRepository extends JpaRepository<Categoria, UUID> {
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
     boolean existsByTitulo(String titulo);
 
     @Query(value = "SELECT * FROM categoria c where c.estado = 1;", nativeQuery = true)
     Page<Categoria> buscarCategoriaEstadoTrue(Pageable pageable);
 
     @Query(value = "SELECT * FROM categoria c where c.estado = 0;", nativeQuery = true)
-    boolean buscarCategoriaEstadoTrue();
+    boolean buscarCategoriaEstadoFalse();
 
 }

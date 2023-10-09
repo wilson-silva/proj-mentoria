@@ -6,14 +6,12 @@ import com.estudo.mentoria.domain.entities.Categoria;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.UUID;
-
 public interface CategoriaService {
 
     Page<Categoria> findAll(Pageable pageable);
-    Categoria findById(UUID id);
+    Categoria findById(Long id);
     void save(CategoriaRequest request);
-    CategoriaResponse update(UUID id, CategoriaRequest request);
-    void delete(UUID id);
+    CategoriaResponse update(Long id, CategoriaRequest request);
+    void delete(Long id);
 
 }

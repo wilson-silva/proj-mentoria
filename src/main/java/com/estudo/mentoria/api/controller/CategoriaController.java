@@ -12,8 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 @RestController
 @RequestMapping("/categorias")
 @RequiredArgsConstructor
@@ -28,7 +26,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoriaResponse> buscarCategoria(@PathVariable UUID id){
+    public ResponseEntity<CategoriaResponse> buscarCategoria(@PathVariable Long id){
         return ResponseEntity.ok(mapper.toCategoriaResponse(service.findById(id)));
     }
 
@@ -39,14 +37,14 @@ public class CategoriaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> alterarCategoria(@PathVariable("id") UUID id,
+    public ResponseEntity<String> alterarCategoria(@PathVariable("id") Long id,
                                                    @RequestBody @Valid CategoriaRequest request){
         service.update(id, request);
         return ResponseEntity.ok("Dados atualizados com sucesso!");
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<String> excluirCategoria(@PathVariable UUID id) {
+    public ResponseEntity<String> excluirCategoria(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok("Categoria excluída (estado atualizado).");
     }

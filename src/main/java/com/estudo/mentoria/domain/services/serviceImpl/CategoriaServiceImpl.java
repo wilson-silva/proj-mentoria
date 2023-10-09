@@ -14,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -31,20 +30,10 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Categoria findById(UUID id) {
-        Optional<Categoria> optionalCategoria = repository.findById(id);
-
-        if (optionalCategoria.isPresent()) {
-            Categoria categoria = optionalCategoria.get();
-
-            if (!Boolean.TRUE.equals(categoria.getEstado())) {
-                throw new BadRequestException("Categoria excluída");
-            }
-
-            return categoria;
-        } else {
-            throw new NotFoundException("Categoria não encontrada!");
-        }
+    public Categoria findById(Long id) {
+        return repository.findById(id)
+                .filter(Categoria::getEstado)
+                .orElseThrow(() -> new NotFoundException("Categoria não encontrada ou excluída!"));
     }
 
 
@@ -62,18 +51,15 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public CategoriaResponse update(UUID id, CategoriaRequest request) {
+    public CategoriaResponse update(Long id, CategoriaRequest request) {
         var categoria = findById(id);
-        if (!Boolean.TRUE.equals(categoria.getEstado())) {
-            throw new BadRequestException("categoria excluída não é possível alterá-la");
-        }
         mapper.map(request, categoria);
         repository.save(categoria);
         return mapper.map(categoria, CategoriaResponse.class);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         Categoria categoria = findById(id);
         categoria.setEstado(false);
         repository.save(categoria);

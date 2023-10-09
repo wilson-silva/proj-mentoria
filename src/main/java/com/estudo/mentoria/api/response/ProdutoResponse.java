@@ -1,7 +1,6 @@
-package com.estudo.mentoria.domain.entities;
+package com.estudo.mentoria.api.response;
 
-import com.estudo.mentoria.domain.entities.Categoria;
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,25 +10,18 @@ import java.util.UUID;
 
 @Data
 @Builder
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Produto {
+public class ProdutoResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idproduto;
+    private String idproduto;
     private String nome;
     private String descricao;
     private Double preco;
     private Integer estoque;
+    @JsonIgnore
     private Boolean estado = true;
     private String fabricante;
-
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Categoria categoria;
-
-
+    private CategoriaResponse categoria;
 
 }
