@@ -12,7 +12,8 @@ public interface CategoriaService {
 
     Page<Categoria> findAll(Pageable pageable);
     Categoria findById(UUID id);
-    Categoria save(CategoriaRequest request);
-    void delete(UUID id);
+    void save(CategoriaRequest request);
     CategoriaResponse update(UUID id, CategoriaRequest request);
+    void delete(UUID id);
+
 }
