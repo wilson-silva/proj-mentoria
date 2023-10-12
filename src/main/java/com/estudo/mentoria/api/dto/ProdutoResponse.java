@@ -1,12 +1,11 @@
-package com.estudo.mentoria.api.response;
+package com.estudo.mentoria.api.dto;
 
+import com.estudo.mentoria.api.dto.CategoriaResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.UUID;
 
 @Data
 @Builder
@@ -22,6 +21,9 @@ public class ProdutoResponse {
     @JsonIgnore
     private Boolean estado = true;
     private String fabricante;
+    @JsonIgnore
     private CategoriaResponse categoria;
-
+    public String getCategoriaTitulo() {
+        return categoria != null ? categoria.getTitulo() : null;
+    }
 }

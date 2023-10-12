@@ -1,12 +1,11 @@
 package com.estudo.mentoria.api.mapper;
 
-import com.estudo.mentoria.api.request.ProdutoRequest;
-import com.estudo.mentoria.api.response.ProdutoResponse;
+import com.estudo.mentoria.api.dto.ProdutoRequest;
+import com.estudo.mentoria.api.dto.ProdutoResponse;
 import com.estudo.mentoria.domain.entities.Produto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -14,10 +13,9 @@ import java.util.List;
 public class ProdutoMapper {
     private final ModelMapper mapper;
 
-    public Produto toProduto(ProdutoRequest request) {
-        return mapper.map(request, Produto.class);
+    public Produto toProduto(ProdutoRequest produtoRequest) {
+        return mapper.map(produtoRequest, Produto.class);
     }
-
     public ProdutoResponse toProdutoResponse(Produto produto) {
         return mapper.map(produto, ProdutoResponse.class);
     }

@@ -1,7 +1,6 @@
-package com.estudo.mentoria.api.response;
+package com.estudo.mentoria.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoriaResponse {
-    private Long id;
+
+    private String id;
     private String titulo;
     @JsonIgnore
     private Boolean estado;
-
 }

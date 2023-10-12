@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -19,12 +18,10 @@ import java.util.UUID;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String titulo;
     private Boolean estado = true;
-
     @JsonIgnore
     @OneToMany(mappedBy="categoria", fetch = FetchType.EAGER)
     private List<Produto> produtos = new ArrayList<>();

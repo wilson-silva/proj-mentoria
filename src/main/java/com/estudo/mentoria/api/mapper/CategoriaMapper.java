@@ -1,12 +1,11 @@
 package com.estudo.mentoria.api.mapper;
 
-import com.estudo.mentoria.api.request.CategoriaRequest;
-import com.estudo.mentoria.api.response.CategoriaResponse;
+import com.estudo.mentoria.api.dto.CategoriaRequest;
+import com.estudo.mentoria.api.dto.CategoriaResponse;
 import com.estudo.mentoria.domain.entities.Categoria;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -14,8 +13,8 @@ import java.util.List;
 public class CategoriaMapper {
     private final ModelMapper mapper;
 
-    public Categoria toCategoria(CategoriaRequest request) {
-        return mapper.map(request, Categoria.class);
+    public Categoria toCategoria(CategoriaRequest categoriaRequest) {
+        return mapper.map(categoriaRequest, Categoria.class);
     }
 
     public CategoriaResponse toCategoriaResponse(Categoria categoria) {

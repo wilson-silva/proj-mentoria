@@ -1,4 +1,4 @@
-package com.estudo.mentoria.api.request;
+package com.estudo.mentoria.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -11,5 +11,4 @@ public class CategoriaRequest {
 
     @NotBlank(message = "O titulo e obrigatorio")
     private String titulo;
-
 }
