@@ -26,6 +26,16 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoService.findAll(pageable).map(mapper::toProdutoResponse));
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<Page<ProdutoResponse>> listarTodosProdutosComCriterio(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String descricao,
+            @RequestParam(required = false) String categoriaTitulo,
+            @RequestParam(required = false) String fabricante,
+            Pageable pageable) {
+        return ResponseEntity.ok(produtoService.filtraProdutosPorCriterios(nome, descricao, categoriaTitulo, fabricante, pageable).map(mapper::toProdutoResponse));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ProdutoResponse> buscarProduto(@PathVariable UUID id) {
         return ResponseEntity.ok(mapper.toProdutoResponse(produtoService.findById(id)));

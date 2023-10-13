@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.UUID;
 
 @Service
@@ -22,6 +23,10 @@ public class ProdutoService implements IService<Produto> {
     @Override
     public Page<Produto> findAll(Pageable pageable) {
         return repository.buscarProdutoEstadoTrue(pageable);
+    }
+
+    public Page<Produto> filtraProdutosPorCriterios(String nome, String descricao, String categoria, String fabricante, Pageable pageable) {
+        return repository.findByNomeContainingOrDescricaoContainingOrCategoriaTituloContainingOrFabricanteContaining(nome, descricao, categoria, fabricante, pageable);
     }
 
     @Override
