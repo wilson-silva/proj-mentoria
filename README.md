@@ -16,7 +16,9 @@ informações dos produtos sejam acessadas apenas por usuários autorizados.
 Pré-requisitos:
 
 * Java 17 ou versões superiores.
+    - https://www.youtube.com/watch?v=QekeJBShCy4
 * Intellj IDEA Community Edition ou sua IDE favorita.
+    - https://www.youtube.com/watch?v=0_e9Egeyk2E&t=382s
 * Controle de versão GIT instalado na sua máquina.
 * Banco MySQL (recomenda-se usar container caso não queira baixar o MySQL na máquina).
 
@@ -57,11 +59,43 @@ cd aluraflix ou abrir o bash dentro da pasta
 ./mvnw spring-boot:run
 
 ```
+## Permissões de acesso
+
+'USER' só acessa métodos GET.
+
+'ADMIN' acessa todos os métodos.
+
+ADMIN:
+````
+{
+    "usuario":"willsilva",
+    "senha":"wilson123"
+}
+````
+
+USER:
+```
+{
+    "usuario":"katysilva",
+    "senha":"katy123"
+}
+```
+
+### Testar recursos via Postman
+Obs: Após autenticar o usuario pegar o token gerado e na aba Authorization->Bearer Token-> Token
+adicionar no campo desta forma: "Bearer xxxxx..."
+
+Adicionado coleção do postman na raiz do projeto para importar e fazer os teste
+"mentoria.postman_collection.json"
+
 
 ### Técnicas e tecnologias utilizadas
 - Java
 - Intellij
 - Spring Boot
+- Spring Data JPA
+- Spring Security
+- JWT
 - Maven
 - MySQL
 - Flyway

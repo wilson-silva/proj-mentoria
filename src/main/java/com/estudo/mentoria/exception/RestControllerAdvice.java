@@ -3,6 +3,7 @@ package com.estudo.mentoria.exception;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -25,10 +26,24 @@ public class RestControllerAdvice {
                 ResponseExceptionDetails.builder()
                         .timestamp(LocalDateTime.now())
                         .status(HttpStatus.BAD_REQUEST.value())
-                        .title("Bad Request Exception, check the documentation")
+                        .title("Bad Request Exception")
                         .details(bre.getMessage())
                         .developerMessage(bre.getClass().getName())
                         .build(), HttpStatus.BAD_REQUEST
+        );
+    }
+
+    @ResponseBody
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ResponseExceptionDetails> handlerAccessDeniedException(AccessDeniedException bre) {
+        return new ResponseEntity<>(
+                ResponseExceptionDetails.builder()
+                        .timestamp(LocalDateTime.now())
+                        .status(HttpStatus.FORBIDDEN.value())
+                        .title("Usuario não autorizado!")
+                        .details(bre.getMessage())
+                        .developerMessage(bre.getClass().getName())
+                        .build(), HttpStatus.FORBIDDEN
         );
     }
 
@@ -39,7 +54,7 @@ public class RestControllerAdvice {
                 ResponseExceptionDetails.builder()
                         .timestamp(LocalDateTime.now())
                         .status(HttpStatus.NOT_FOUND.value())
-                        .title("Not Found Exception, check the documentation")
+                        .title("Not Found Exception")
                         .details(bre.getMessage())
                         .developerMessage(bre.getClass().getName())
                         .build(), HttpStatus.NOT_FOUND
@@ -73,7 +88,7 @@ public class RestControllerAdvice {
                 ResponseExceptionDetails.builder()
                         .timestamp(LocalDateTime.now())
                         .status(HttpStatus.NOT_FOUND.value())
-                        .title("Not Found Exception, check the documentation")
+                        .title("Not Found Exception")
                         .details(bre.getMessage())
                         .developerMessage(bre.getClass().getName())
                         .build(), HttpStatus.NOT_FOUND

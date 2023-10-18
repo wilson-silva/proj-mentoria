@@ -1,0 +1,429 @@
+{
+	"info": {
+		"_postman_id": "1b62c87d-6253-4884-a1a1-565eb110d793",
+		"name": "mentoria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16644972"
+	},
+	"item": [
+		{
+			"name": "categoria",
+			"item": [
+				{
+					"name": "listaTodasCategorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarCategoria",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "06504d38-8790-41b8-825c-92e53ad2ccf0",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/028bd56a-6884-11ee-8c99-0242ac120002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"028bd56a-6884-11ee-8c99-0242ac120002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrarCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6IndpbGxzaWx2YSIsImV4cCI6MTY5NzY1MzQ3Mn0.icCK4wbYezRNDMsRWEYWbSqmU44hsLPMN_DBCXsjQns",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"testando\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterarCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"testandoPORRA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/edfc9035-d26e-45ed-9ce4-41f7828ba64f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"edfc9035-d26e-45ed-9ce4-41f7828ba64f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirCategoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/edfc9035-d26e-45ed-9ce4-41f7828ba64f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"edfc9035-d26e-45ed-9ce4-41f7828ba64f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "produto",
+			"item": [
+				{
+					"name": "listarTodosProdutosComCriterio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/produtos/buscar?nome=O Hob&categoriaTitulo=Informática",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "O Hob"
+								},
+								{
+									"key": "categoriaTitulo",
+									"value": "Informática"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listaTodasProdutos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/produtos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/produtos/9d7fe616-6d08-11ee-bf4a-70b5e8fa194d",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos",
+								"9d7fe616-6d08-11ee-bf4a-70b5e8fa194d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrarProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"TV\",\r\n    \"descricao\": \"LG 2023\",\r\n    \"preco\": 2000.0,\r\n    \"estoque\": 20,\r\n    \"fabricante\": \"LG\",\r\n    \"categoriaId\": \"028bd56a-6884-11ee-8c99-0242ac120002\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/produtos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterarProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLmFwaSIsInN1YiI6ImthdHlzaWx2YSIsImV4cCI6MTY5NzY1MzcwMn0.bZK5vYmjtrReBDLw5xPhZk0avfVIm1Prrd7VbZa0zRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"eu soum bom\",\r\n    \"descricao\": \"ehhhhhhhhhhhhhhhhhhhhhh\",\r\n    \"preco\": 3000.0,\r\n    \"estoque\": 200,\r\n    \"fabricante\": \"LGTeste\",\r\n    \"categoriaId\": \"0d8023e0-6884-11ee-8c99-0242ac120002\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/produtos/fe2dc942-7a40-496e-a1da-8d4637bb796d",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos",
+								"fe2dc942-7a40-496e-a1da-8d4637bb796d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirProduto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/produtos/dc52df9b-eae9-40eb-9cbb-05dacab9c669",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos",
+								"dc52df9b-eae9-40eb-9cbb-05dacab9c669"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "registrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "wilson123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "willsilva",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"fran\",\r\n    \"password\": \"fran123\",\r\n    \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/autenticar/registrar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"autenticar",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autenticar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"willsilva\",\r\n    \"password\": \"wilson123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/autenticar/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"autenticar",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
