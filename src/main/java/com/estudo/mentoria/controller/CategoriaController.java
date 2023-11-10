@@ -6,7 +6,6 @@ import com.estudo.mentoria.entities.Categoria;
 import com.estudo.mentoria.mapper.CategoriaMapper;
 import com.estudo.mentoria.services.CategoriaService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -18,13 +17,14 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/categorias")
-@RequiredArgsConstructor
 public class CategoriaController {
 
     private final CategoriaService categoriaService;
     private final CategoriaMapper categoriaMapper;
 
-    public CategoriaController() {
+    public CategoriaController(CategoriaService categoriaService, CategoriaMapper categoriaMapper) {
+        this.categoriaService = categoriaService;
+        this.categoriaMapper = categoriaMapper;
     }
 
     @GetMapping

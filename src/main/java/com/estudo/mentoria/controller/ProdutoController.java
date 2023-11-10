@@ -5,7 +5,6 @@ import com.estudo.mentoria.dto.produto.ProdutoRequestDto;
 import com.estudo.mentoria.dto.produto.ProdutoResponseDto;
 import com.estudo.mentoria.services.ProdutoService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -20,6 +19,11 @@ public class ProdutoController {
 
     private final ProdutoService produtoService;
     private final ProdutoMapper mapper;
+
+    public ProdutoController(ProdutoService produtoService, ProdutoMapper mapper) {
+        this.produtoService = produtoService;
+        this.mapper = mapper;
+    }
 
     @GetMapping
     public ResponseEntity<Page<ProdutoResponseDto>> listarTodosProdutos(Pageable pageable) {
