@@ -40,7 +40,7 @@ services:
       - mentoria_data:/var/lib/mysql
 
 volumes:
-  devdojo_data:
+  mentoria_data:
 
 ```
 
@@ -50,10 +50,10 @@ volumes:
 git clone https://github.com/wilson-silva/mentoria.git
 
 
-# --- Rodar aplicação videoflix ---
+# --- Rodar aplicação mentoria ---
 
-# entrar na pasta do projeto videoflix
-cd aluraflix ou abrir o bash dentro da pasta
+# entrar na pasta do projeto mentoria
+cd mentoria ou abrir o bash dentro da pasta
 
 # executar o projeto
 ./mvnw spring-boot:run

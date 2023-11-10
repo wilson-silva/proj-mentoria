@@ -24,6 +24,9 @@ public class CategoriaController {
     private final CategoriaService categoriaService;
     private final CategoriaMapper categoriaMapper;
 
+    public CategoriaController() {
+    }
+
     @GetMapping
     public ResponseEntity<Page<CategoriaResponseDto>> listarTodasCategorias(Pageable pageable){
         return ResponseEntity.ok(categoriaService.findAll(pageable).map(categoriaMapper::toCategoriaResponse));
