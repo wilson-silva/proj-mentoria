@@ -88,6 +88,12 @@ adicionar no campo desta forma: "Bearer xxxxx..."
 Adicionado coleção do postman na raiz do projeto para importar e fazer os teste
 "mentoria.postman_collection.json"
 
+### Swagger documentação
+
+```bash
+# para acessar a documentação desta API
+localhost:8080/swagger-ui.html
+```
 
 ### Técnicas e tecnologias utilizadas
 - Java
