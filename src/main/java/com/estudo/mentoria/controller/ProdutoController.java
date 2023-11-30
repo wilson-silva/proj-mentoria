@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,8 @@ public class ProdutoController {
     private final ProdutoService produtoService;
     private final ProdutoMapper mapper;
 
+    Logger logger = LogManager.getLogger(ProdutoController.class);
+
     public ProdutoController(ProdutoService produtoService, ProdutoMapper mapper) {
         this.produtoService = produtoService;
         this.mapper = mapper;
@@ -40,6 +44,12 @@ public class ProdutoController {
     })
     @GetMapping
     public ResponseEntity<Page<ProdutoResponseDto>> listarTodosProdutos(Pageable pageable) {
+        logger.trace("TRACE");
+        logger.debug("DEBUG");
+        logger.info("INFO");
+        logger.warn("WARN");
+        logger.error("ERROR");
+        logger.fatal("FATAL");
         return ResponseEntity.ok(produtoService.findAll(pageable).map(mapper::toProdutoResponse));
     }
 
